@@ -1,0 +1,86 @@
+img{
+	height:300px;
+	width: 300px;
+}
+.container1
+{
+   background-color: blue
+}
+.content{
+	flex-basis: 30%;
+	background: rgb(197, 129, 131);
+	border-radius: 20px;
+	margin-bottom: 5%;
+	padding: 10px 12px;
+	box-sizing: border-box;
+	transition: 0.5s;
+	color:blue;
+	height: 300px;
+	width: 100px;
+	margin-left: 20%;
+	flex-wrap: wrap;
+}
+h2
+{
+	text-align: center;
+}
+.image
+{  display: flex;
+	justify-content:center;
+	align-items: center;
+	margin-bottom: 10px;
+
+}
+body
+{
+	background-image: url("img1.jpg");
+	background-attachment: fixed;
+}
+.container
+{
+	color: blueviolet;
+	text-align: center;
+}
+p:hover{
+	background-color: aqua;
+}
+body, html {
+    height: 100%;
+}
+
+/* The hero image */
+.hero-image {
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("Hero-PNG-Pic.png");
+	background-attachment: fixed;
+	overflow: hidden;
+  /* Set a specific height */
+  height: 80%;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.para:hover
+{
+	background-color: aquamarine;
+}
+
+/* Place text in the middle of the image */
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+div
+{
+	box-shadow: 10px 10px 5px lightblue;
+	;
+}
+
+
