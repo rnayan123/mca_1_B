@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="shop.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<products>
+    <product pid="101">
+        <productname>mobile</productname>
+        <price>199</price>
+        <quantity>20</quantity>
+        <category>Electronics</category>
+    </product>
+    <product pid="102">
+        <productname>shirt</productname>
+        <price>205</price>
+        <quantity>70</quantity>
+        <category>Clothing</category>
+    </product>
+    <product pid="104">
+        <productname>rs agarwal</productname>
+        <price>300</price>
+        <quantity>80</quantity>
+        <category>Books</category>
+    </product>
+    <product pid="105">
+        <productname>washing machine</productname>
+        <price>400</price>
+        <quantity>80</quantity>
+        <category>Electronics</category>
+    </product>
+</products>
