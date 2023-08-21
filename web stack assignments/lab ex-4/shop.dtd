@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!ELEMENT products (product+)>
-<!ELEMENT Employee1 (productname,price,quantity,category)>
+<!ELEMENT product (productname,price,quantity,category)>
 <!ELEMENT productname (#PCDATA)>
 <!ELEMENT price (#PCDATA)>
 <!ELEMENT quantity (#PCDATA)>
