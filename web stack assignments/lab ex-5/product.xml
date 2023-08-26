@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="product.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<products>
+    <product pid="2000">
+    <id>1</id>
+    <name>Mobile phone</name>
+    <price>400.10</price>
+    <description>this is a oneplus phone</description>
+    </product>
+    <product pid="2001">
+        <id>2</id>
+        <name>laptop</name>
+        <price>600.2</price>
+        <description>This is a samsung laptop</description>
+    </product>
+    <product pid="2500">
+        <id>3</id>
+        <name>airpods</name>
+        <price>999.1</price>
+        <description>this is a laptop earpod</description>
+    </product>
+    <product pid="2300">
+        <id>4</id>
+        <name>smartwatch</name>
+        <price>700.5</price>
+        <description>this is is apple smartwatch</description>
+    </product>
+</products>
