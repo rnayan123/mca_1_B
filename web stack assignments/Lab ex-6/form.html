@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="a.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+    .error {
+        color: red;
+    }
+</style>
+</head>
+<body>
+<div class="container mt-5">
+    <centre><h2>Registration Form</h2></centre>
+    <form id="registrationForm">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+            <div id="nameError" class="error"></div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+        </div>
+        <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" class="form-control" id="dob" name="dob" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('registrationForm').addEventListener('submit', function (e) {
+        const name = document.getElementById('name').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+
+        const nameRegex = /^[A-Za-z]+$/;
+
+        if (!name.match(nameRegex)) {
+            e.preventDefault();
+            document.getElementById('nameError').textContent = 'Name should only contain letters';
+        } else {
+            document.getElementById('nameError').textContent = '';
+        }
+
+        if (password !== confirmPassword) {
+            e.preventDefault();
+            alert('Passwords do not match');
+            return;
+        }
+    });
+</script>
+</body>
+</html>
