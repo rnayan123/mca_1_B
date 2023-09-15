@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     fetchBooksButton.addEventListener("click", function () {
-        const apiUrl = "book.json"; 
+        const apiUrl = "https://books-api-rz6d.onrender.com/books"; 
 
         fetch(apiUrl)
             .then(response => {
