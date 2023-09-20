@@ -23,10 +23,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to display the list of books
     function displayBooks(booksData) {
-        // Clear the existing content in the book list
         bookList.innerHTML = "";
 
-        const ol = document.createElement("ol");
+        const  ol=document.createElement("ol");
 
         booksData.forEach(function (book) {
             const li = document.createElement("li");
@@ -36,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
         
         });
 
-        // Append the list to the book list div
+    
         bookList.appendChild(ol);
     
     }

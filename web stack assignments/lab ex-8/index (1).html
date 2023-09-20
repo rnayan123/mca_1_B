@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Product Catalog</title>
+    <style>
+        .product {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+        }
+    
+        img {
+            max-width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Product Catalog</h1>
+
+    <input type="text" id="searchInput" placeholder="Search products">
+    <select id="sortSelect">
+        <option value="name">Sort by Name</option>
+        <option value="price">Sort by Price</option>
+    </select>
+
+    <div id="productList"></div>
+
+    <script src="product_catalog.js"></script>
+    
+</body>
+
+</html>
