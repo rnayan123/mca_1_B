@@ -1,0 +1,43 @@
+.book-reviews {
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.book-reviews h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.book-reviews textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.book-reviews button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.book-reviews button:hover {
+    background-color: #0056b3;
+}
+
+.book-reviews ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.book-reviews li {
+    margin-bottom: 10px;
+}

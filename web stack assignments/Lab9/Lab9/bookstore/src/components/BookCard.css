@@ -1,0 +1,47 @@
+.book-card {
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    margin: 10px;
+    max-height: 300px;
+    /* Set the maximum height for the card */
+    overflow-y: auto;
+    /* Add vertical scrolling if content exceeds the maximum height */
+}
+
+.book-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.book-card h2 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.book-card p {
+    font-size: 0.9rem;
+}
+
+.book-card button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.book-card button:hover {
+    background-color: #0056b3;
+}
+
+.book-card .review-button {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: calc(100% - 20px);
+}
