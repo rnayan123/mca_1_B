@@ -1,0 +1,21 @@
+{% extends "events/layout.html" %}
+
+
+{% block body %}
+<h1 class="display-3 text-center">Food Order</h1>
+
+{% if foods|length > 0 %}
+
+    <ul>
+        {% for item in foods %}
+        <div class="border rounded m-3 p-3 ps-5">
+            <li> Food item: {{ item.fooditem }}</li>
+            <li>Quantity: {{ item.quantity }}</li>
+            <li>Price: {{ item.price}}</li>
+        </div>
+        {% endfor %}
+    </ul>
+
+{% endif %}
+
+{% endblock %}

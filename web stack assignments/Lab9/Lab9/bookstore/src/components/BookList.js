@@ -7,7 +7,7 @@ const BookList = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    const apiUrl = `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`;
+    const apiUrl = `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=AIzaSyCKJDR14Z1NaDD5_pAU9EihFtAVM6NXPAk`;
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
