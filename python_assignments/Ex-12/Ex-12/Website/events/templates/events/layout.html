@@ -15,29 +15,32 @@
             height: 40vh;
             width: 60vw;
             padding: 3%;
+            background-color:orchid
+            
         }
 
         .form-control {
             width: 100%;
+        
         }
     </style>
-    <div class="container-fluid bg-dark p-3">
-        <div class="container text-white border border-light rounded add-fooditem">
+    <div class="container-fluid bg-black p-3">
+        <div class="container text-black border border-light rounded add-fooditem">
             <h1 class="display-1 text-center">Add Fooditem</h1>
             <form action="{% url 'addFooditem' %}" method="POST">
                 {% csrf_token %}
                 <div class="form d-flex flex-row">
                     <div class="mb-3 me-5">
                         <label for="exampleInputEmail1" class="form-label">Food item</label>
-                        <input type="text" class="form-control" name="fooditem" id="name" aria-describedby="emailHelp">
+                        <input type="text" class="form-control" name="fooditem" id="fooditem" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3 me-5">
                         <label for="exampleInputPassword1" class="form-label">Quantity</label>
-                        <input type="text" name="quantity" class="form-control" id="location">
+                        <input type="text" name="quantity" class="form-control" id="quantity">
                     </div>
                     <div class="mb-3 me-5">
                         <label for="exampleInputPassword1" class="form-label">Price</label>
-                        <input type="text" name="price" class="form-control" id="date">
+                        <input type="text" name="price" class="form-control" id="price">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary mx-auto">Submit</button>
@@ -49,16 +52,16 @@
     <div>
         {% block body %}
 
-        <h1 class="display-3 text-center">EVENTS</h1>
+        <h1 class="display-3 text-center">Orders</h1>
 
         {% if foods|length > 0 %}
 
         <ul>
             {% for item in foods %}
             <div class="border rounded m-3 p-3 ps-5">
-                <li> : {{ item.fooditem }}</li>
-                <li>LOCATION : {{ item.quantity }}</li>
-                <li>DATE : {{ item.price}}</li>
+                <li> Food Item: {{ item.fooditem }}</li>
+                <li>Quantity : {{ item.quantity }}</li>
+                <li>Price : {{ item.price}}</li>
             </div>
             {% endfor %}
         </ul>
