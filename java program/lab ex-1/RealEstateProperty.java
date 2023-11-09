@@ -64,9 +64,9 @@ public class RealEstateProperty {
         this.bedrooms = bedrooms;
     }
 
-    // New constructor with fixed amount increase
+   
     public RealEstateProperty(int fixedAmountIncrease) {
-        updatePrice(fixedAmountIncrease); // Update the price with the fixed amount increase
+        updatePrice(fixedAmountIncrease); 
     }
 
     public static void main(String[] args) {
@@ -82,7 +82,6 @@ public class RealEstateProperty {
         RealEstateProperty property2 = new RealEstateProperty("456 SG Palya", 300000, 4);
         property2.displayDetails();
 
-        // Create an instance using the new constructor with fixed amount increase
         RealEstateProperty property3 = new RealEstateProperty("789 Whitefield", 200000, 3, 5000);
         property3.displayDetails();
        property3.updatePrice(2000);

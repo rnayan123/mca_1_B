@@ -102,31 +102,30 @@ int main()
 {
     struct CanteenManagement canteen;
 
-    // Fill matrices with user input
     printf("Enter values for Matrix A:\n");
     fillMatrix(canteen.menuA);
 
     printf("\nEnter values for Matrix B:\n");
     fillMatrix(canteen.menuB);
 
-    // Display the original matrices
+    
     printf("\nMatrix A:\n");
     displayMatrix(canteen.menuA);
 
     printf("\nMatrix B:\n");
     displayMatrix(canteen.menuB);
 
-    // Perform addition and display the result
+
     addMatrices(canteen.menuA, canteen.menuB, canteen.resultMatrixAdd);
     printf("\nMatrix Addition Result:\n");
     displayMatrix(canteen.resultMatrixAdd);
 
-    // Perform multiplication and display the result
+
     multiplyMatrices(canteen.menuA, canteen.menuB, canteen.resultMatrixMultiply);
     printf("\nMatrix Multiplication Result:\n");
     displayMatrix(canteen.resultMatrixMultiply);
 
-    // Menu item operations
+
     int choice, row, col;
     char itemName[50];
     double itemPrice;
@@ -165,8 +164,6 @@ int main()
     default:
         printf("Invalid choice\n");
     }
-
-    // Display the updated Matrix A
     printf("\nUpdated Matrix A:\n");
     displayMatrix(canteen.menuA);
 
