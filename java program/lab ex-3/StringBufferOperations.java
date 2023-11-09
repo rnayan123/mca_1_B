@@ -31,7 +31,6 @@ public class StringBufferOperations {
         
         int length = stringBuffer.length();
         System.out.println("7. length(): " + length);
-
         
         int capacity = stringBuffer.capacity();
         System.out.println("8. capacity(): " + capacity);
