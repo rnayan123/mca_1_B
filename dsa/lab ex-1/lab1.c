@@ -108,64 +108,87 @@ int main()
     printf("\nEnter values for Matrix B:\n");
     fillMatrix(canteen.menuB);
 
-    
     printf("\nMatrix A:\n");
     displayMatrix(canteen.menuA);
 
     printf("\nMatrix B:\n");
     displayMatrix(canteen.menuB);
 
-
-    addMatrices(canteen.menuA, canteen.menuB, canteen.resultMatrixAdd);
-    printf("\nMatrix Addition Result:\n");
-    displayMatrix(canteen.resultMatrixAdd);
-
-
-    multiplyMatrices(canteen.menuA, canteen.menuB, canteen.resultMatrixMultiply);
-    printf("\nMatrix Multiplication Result:\n");
-    displayMatrix(canteen.resultMatrixMultiply);
-
-
     int choice, row, col;
     char itemName[50];
     double itemPrice;
+    char exitInput[5];
 
-    printf("\nMenu Item Operations:\n");
-    printf("1. Add Item\n");
-    printf("2. Remove Item\n");
-    printf("3. Search Item\n");
-    printf("Enter your choice: ");
-    scanf("%d", &choice);
-
-    switch (choice)
+    while (1)
     {
-    case 1:
-        printf("Enter row and column for the new item: ");
-        scanf("%d %d", &row, &col);
-        printf("Enter name for the new item: ");
-        scanf("%s", itemName);
-        printf("Enter price for the new item: ");
-        scanf("%lf", &itemPrice);
-        addItem(canteen.menuA, row - 1, col - 1, itemName, itemPrice);
-        break;
+        printf("\nMenu Item Operations:\n");
+        printf("1. Add Item\n");
+        printf("2. Remove Item\n");
+        printf("3. Search Item\n");
+        printf("4. Matrix Addition\n");
+        printf("5. Matrix Multiplication\n");
+        printf("6. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
 
-    case 2:
-        printf("Enter row and column to remove the item: ");
-        scanf("%d %d", &row, &col);
-        removeItem(canteen.menuA, row - 1, col - 1);
-        break;
+        if (choice == 6)
+        {
+            printf("Do you really want to exit? (yes/no): ");
+            scanf("%s", exitInput);
+            if (strcmp(exitInput, "yes") == 0)
+            {
+                printf("Exiting the program.\n");
+                break;
+            }
+            else
+            {
+                continue;
+            }
+        }
 
-    case 3:
-        printf("Enter name of the item to search: ");
-        scanf("%s", itemName);
-        searchItem(canteen.menuA, ROWS, COLS, itemName);
-        break;
+        switch (choice)
+        {
+        case 1:
+            printf("Enter row and column for the new item: ");
+            scanf("%d %d", &row, &col);
+            printf("Enter name for the new item: ");
+            scanf("%s", itemName);
+            printf("Enter price for the new item: ");
+            scanf("%lf", &itemPrice);
+            addItem(canteen.menuA, row - 1, col - 1, itemName, itemPrice);
+            break;
 
-    default:
-        printf("Invalid choice\n");
+        case 2:
+            printf("Enter row and column to remove the item: ");
+            scanf("%d %d", &row, &col);
+            removeItem(canteen.menuA, row - 1, col - 1);
+            break;
+
+        case 3:
+            printf("Enter name of the item to search: ");
+            scanf("%s", itemName);
+            searchItem(canteen.menuA, ROWS, COLS, itemName);
+            break;
+
+        case 4:
+            addMatrices(canteen.menuA, canteen.menuB, canteen.resultMatrixAdd);
+            printf("\nMatrix Addition Result:\n");
+            displayMatrix(canteen.resultMatrixAdd);
+            break;
+
+        case 5:
+            multiplyMatrices(canteen.menuA, canteen.menuB, canteen.resultMatrixMultiply);
+            printf("\nMatrix Multiplication Result:\n");
+            displayMatrix(canteen.resultMatrixMultiply);
+            break;
+
+        default:
+            printf("Invalid choice\n");
+        }
+
+        printf("\nUpdated Matrix A:\n");
+        displayMatrix(canteen.menuA);
     }
-    printf("\nUpdated Matrix A:\n");
-    displayMatrix(canteen.menuA);
 
     return 0;
 }
