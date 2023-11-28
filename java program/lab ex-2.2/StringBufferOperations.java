@@ -27,6 +27,7 @@ public class StringBufferOperations {
         
         stringBuffer.setCharAt(2, 'L');
         System.out.println("6. setCharAt(2, 'L'): " + stringBuffer);
+        System.out.println(stringBuffer);
 
         
         int length = stringBuffer.length();

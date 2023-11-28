@@ -4,6 +4,7 @@ public class RealEstateManagement {
         
         House h1 = new House("123 Main St", 250000.0, 3, 2);
         Apartment a1 = new Apartment("456 Oak St", 180000.0, 2, 5);
+        
 
         System.out.println(h1.displayInfo());
         System.out.println(a1.displayInfo());

@@ -5,6 +5,10 @@ public class RealEstateProperty {
     private int bedrooms;
     private int bathrooms;
 
+    public RealEstateProperty() {
+        System.out.println("Welcome to our realstate apploication");
+    }
+
     public RealEstateProperty(String address, double price, int bedrooms, int bathrooms) {
         this.address = address;
         this.price = price;
@@ -64,7 +68,6 @@ public class RealEstateProperty {
         this.bedrooms = bedrooms;
     }
 
-   
     public RealEstateProperty(int fixedAmountIncrease) {
         updatePrice(fixedAmountIncrease); 
     }
@@ -84,6 +87,7 @@ public class RealEstateProperty {
 
         RealEstateProperty property3 = new RealEstateProperty("789 Whitefield", 200000, 3, 5000);
         property3.displayDetails();
-       property3.updatePrice(2000);
+        property3.updatePrice(2000);
+        
     }
 }
