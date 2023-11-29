@@ -169,6 +169,59 @@ int findMaxElement(struct Queue *queue)
     return maxElement;
 }
 
+void reverse(struct Queue *queue)
+{
+    if (isEmpty(queue) || queue->front == queue->rear)
+    {
+        printf("Queue is empty or has only one element. Cannot reverse.\n");
+        return;
+    }
+
+    struct Node *prev = NULL;
+    struct Node *current = queue->front;
+    struct Node *next = NULL;
+
+    while (current != NULL)
+    {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+
+    queue->rear = queue->front;
+    queue->front = prev;
+
+    printf("Queue reversed.\n");
+}
+
+void sortAscending(struct Queue *queue)
+{
+    if (isEmpty(queue) || queue->front == queue->rear)
+    {
+        printf("Queue is empty or has only one element. Cannot sort.\n");
+        return;
+    }
+
+    struct Node *current, *index;
+    int temp;
+
+    for (current = queue->front; current->next != NULL; current = current->next)
+    {
+        for (index = current->next; index != NULL; index = index->next)
+        {
+            if (current->data > index->data)
+            {
+                temp = current->data;
+                current->data = index->data;
+                index->data = temp;
+            }
+        }
+    }
+
+    printf("Queue sorted in ascending order.\n");
+}
+
 int main()
 {
     struct Queue *queue = createQueue();
@@ -184,7 +237,9 @@ int main()
         printf("5. Calculate Average\n");
         printf("6. Calculate Count\n");
         printf("7. Find Maximum Element\n");
-        printf("8. Exit\n");
+        printf("8. Reverse Queue\n");
+        printf("9. Sort Ascending\n");
+        printf("10. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -216,12 +271,18 @@ int main()
             findMaxElement(queue);
             break;
         case 8:
+            reverse(queue);
+            break;
+        case 9:
+            sortAscending(queue);
+            break;
+        case 10:
             printf("Exiting the program.\n");
             break;
         default:
             printf("Invalid choice. Please enter a valid option.\n");
         }
-    } while (choice != 8);
+    } while (choice != 10);
 
     struct Node *current = queue->front;
     struct Node *next;

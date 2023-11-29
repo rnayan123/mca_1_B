@@ -1,13 +1,7 @@
 // Package: realEstate
+import Realstate.*;
 
-import realEstate.agents.RealEstateAgent;
-import realEstate.agents.ResidentialRealEstateAgent;
-import realEstate.agents.CommercialRealEstateAgent;
-import realEstate.properties.RealEstateListing;
-import realEstate.properties.ResidentialProperty;
-import realEstate.properties.CommercialProperty;
-
-public class Main {
+public class Test {
     public static void main(String[] args) {
         // Create a residential property
         RealEstateListing residentialProperty = new ResidentialProperty();
