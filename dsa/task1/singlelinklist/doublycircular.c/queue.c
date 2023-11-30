@@ -148,6 +148,7 @@ int calculateCount(struct Queue *queue)
 int findMaxElement(struct Queue *queue)
 {
     if (isEmpty(queue))
+    
     {
         printf("Queue is empty. No maximum element.\n");
         return -1;
