@@ -190,7 +190,7 @@ int main()
     {
         printf("\nUniversity Canteen Management System (Circular Linked List)\n");
         printf("1. Add Menu Item\n");
-        printf("2. Delete Menu Item\n");
+        printf("2. Delete Menu Item\n";
         printf("3. Search Menu Item\n");
         printf("4. Display Menu\n");
         printf("5. Exit\n");

@@ -10,7 +10,7 @@ public class String_oper{
         System.out.println("charAt(0): " + firstChar);
 
        System.out.println("****************************************");
-        String compareString = "We realize";
+       String compareString = "We realize";
         int compareToResult = str.compareTo(compareString);
         System.out.println("compareTo(\"We realize\"): " + compareToResult);
         System.out.println("****************************************");
@@ -19,6 +19,7 @@ public class String_oper{
         System.out.println("concat(): " + concatString);
         System.out.println(str);
          System.out.println("****************************************");
+         
          
         
         boolean containsResult = str.contains("Tata Nano");
@@ -88,7 +89,7 @@ public class String_oper{
 
        
         boolean startsWithResult = str.startsWith("We");
-        System.out.println("startsWith(\"We\"): " + startsWithResult);
+        System.out.println("startsWith(We): " + startsWithResult);
          System.out.println("****************************************");
        
         String substringResult = str.substring(50, 100);
@@ -116,5 +117,7 @@ public class String_oper{
         int number = 42;
         String valueOfString = String.valueOf(number);
         System.out.println("valueOf(): " + valueOfString);
+
+        
     }
 }

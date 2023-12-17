@@ -2,26 +2,23 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_ITEM_NAME_LENGTH 50
-#define MAX_PRICE_LENGTH 15
+#define MAX_Name_LENGTH 50
 
-// Node structure for food item information
-struct MenuItemNode
+struct Student
 {
-    char itemName[MAX_ITEM_NAME_LENGTH];
-    char price[MAX_PRICE_LENGTH];
-    struct MenuItemNode *next;
-    struct MenuItemNode *prev;
+    char itemName[MAX_Name_Length];
+    int marks;
+    int roll;
+    struct Student *prev;
 };
 
-typedef struct MenuItemNode MenuItemNode;
+typedef struct Student Studentnode;
 
-MenuItemNode *HEAD;
+Student_Node *HEAD;
 
-// Function to create a new menu item node
-MenuItemNode *createMenuItemNode(const char *itemName, const char *price)
+Student_node *createStudentnode(const char *itemName, const char *marks,const char *roll)
 {
-    MenuItemNode *newNode = (MenuItemNode *)malloc(sizeof(MenuItemNode));
+    Studentnode *newNode = (MenuItemNode *)malloc(sizeof(Studentnode));
     if (newNode == NULL)
     {
         printf("Memory allocation error.\n");

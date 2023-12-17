@@ -6,7 +6,7 @@ public class RealEstateProperty {
     private int bathrooms;
 
     public RealEstateProperty() {
-        System.out.println("Welcome to our realstate apploication");
+        System.out.println("Welcome to our real estate application");
     }
 
     public RealEstateProperty(String address, double price, int bedrooms, int bathrooms) {
@@ -25,7 +25,7 @@ public class RealEstateProperty {
     }
 
     public void calculatePricePerBedroom() {
-        if (bedrooms != 0) {
+        if (bedrooms > 0) {
             double pricePerBedroom = price / bedrooms;
             System.out.println("Price per Bedroom: Rs." + pricePerBedroom);
         } else {
@@ -69,7 +69,8 @@ public class RealEstateProperty {
     }
 
     public RealEstateProperty(int fixedAmountIncrease) {
-        updatePrice(fixedAmountIncrease); 
+        this();
+        updatePrice(fixedAmountIncrease);
     }
 
     public static void main(String[] args) {
@@ -91,3 +92,5 @@ public class RealEstateProperty {
         
     }
 }
+
+        
