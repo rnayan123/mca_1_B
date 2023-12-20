@@ -6,6 +6,7 @@ public class RealEstateProperty {
     private int bathrooms;
 
     public RealEstateProperty() {
+        
         System.out.println("Welcome to our real estate application");
     }
 
