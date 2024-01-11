@@ -51,7 +51,6 @@ const AddPatient = () => {
       // Write the new patient's data simultaneously in the patients list.
       const updates = {};
       updates[`/patients/${newPatientKey}`] = formData;
-
       // Use await to wait for the update to complete
       await update(ref(database), updates);
 
@@ -164,4 +163,11 @@ export default AddPatient;
 
 const styles = StyleSheet.create({
   // Your styles remain unchanged
+
+  container: {
+    padding: 10,
+  },
+  topText: {
+    fontWeight: "bold",
+  },
 });

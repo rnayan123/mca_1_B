@@ -11,13 +11,14 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBh6nDHUBVeDU0DQhPEmlluIt7dCatT6og",
-  authDomain: "patient-tracker-app-479d0.firebaseapp.com",
-  databaseURL: "https://patient-tracker-app-479d0-default-rtdb.firebaseio.com",
-  projectId: "patient-tracker-app-479d0",
-  storageBucket: "patient-tracker-app-479d0.appspot.com",
-  messagingSenderId: "929469016286",
-  appId: "1:929469016286:web:4aa7cc0b4385c2232efa4f",
+  apiKey: "AIzaSyAIcTRKPgMn4g6bfObi8H6dMiYXcysteH0",
+  authDomain: "healthmate-e9565.firebaseapp.com",
+  databaseURL: "https://healthmate-e9565-default-rtdb.firebaseio.com",
+  projectId: "healthmate-e9565",
+  storageBucket: "healthmate-e9565.appspot.com",
+  messagingSenderId: "1070886661855",
+  appId: "1:1070886661855:web:8e116ad1bb94985078436a",
+  measurementId: "G-RJS0V4623D",
 };
 
 // Initialize Firebase
