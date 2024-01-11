@@ -92,7 +92,7 @@ const Home = ({ navigation }) => {
               }}
             >
               {" "}
-              Find your Patient{" "}
+              Welcome to Healthmate{" "}
             </Text>
             <Text
               style={{
@@ -104,7 +104,7 @@ const Home = ({ navigation }) => {
               }}
             >
               {" "}
-              Right Now
+              
             </Text>
           </View>
           <Pressable

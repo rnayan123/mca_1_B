@@ -1,89 +1,152 @@
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
+#include <stdbool.h>
 
-int elementComparisons = 0;
-int indexComparisons = 0;
+typedef struct node
+{
+    int num;
+    struct node *next;
+} Node;
 
+Node *HEAD = NULL;
 
-int binarySearchInt(int arr[], int low, int high, int key) {
-    while (low <= high) {
-        indexComparisons ++;
-        int mid = low + (high - low) / 2;
+void insertNode(int num)
+{
+    Node *newNode = (Node *)malloc(sizeof(Node));
 
-        elementComparisons++;
-        if (arr[mid] == key) {  
-            return mid;
-        } else if (arr[mid] < key) {
-            low = mid + 1;
-        } else {
-            high = mid - 1;
-        }
+    if (newNode == NULL)
+    {
+        printf("Memory allocation error!\n");
+        exit(EXIT_FAILURE);
     }
 
-    return -1;
+    newNode->num = num;
+    newNode->next = NULL;
+
+    if (HEAD == NULL)
+    {
+        HEAD = newNode;
+    }
+    else
+    {
+        Node *temp = HEAD;
+
+        while (temp->next)
+        {
+            temp = temp->next;
+        }
+
+        temp->next = newNode;
+    }
 }
 
-int binarySearchChar(char arr[], int low, int high, char key) {
-    while (low <= high) {
-        int mid = low + (high - low) / 2;
-
-        elementComparisons++;
-        if (arr[mid] == key) {
-            indexComparisons += mid + 1;
-            return mid;
-        } else if (arr[mid] < key) {
-            low = mid + 1;
-        } else {
-            high = mid - 1;
-        }
+void display()
+{
+    if (HEAD == NULL)
+    {
+        printf("List is empty\n");
+        return;
     }
 
-    return -1;
+    Node *temp = HEAD;
+
+    while (temp)
+    {
+        printf("%d -> ", temp->num);
+        temp = temp->next;
+    }
+
+    printf("X\n");
 }
 
+bool linearSearch(int key)
+{
+    if (HEAD == NULL)
+    {
+        printf("List is empty\n");
+        return false;
+    }
 
-int main() {
-    int n;
-    printf("Enter the size of the array: ");
-    scanf("%d", &n);
+    Node *temp = HEAD;
 
-    printf("Enter the data type (int or char): ");
-    char dataType[4];
-    scanf("%s", dataType);
-
-    if (strcmp(dataType, "int") == 0) {
-
-        int intArray[n];
-        printf("Enter %d sorted integer elements of the array:\n", n);
-        for (int i = 0; i < n; i++) {
-            scanf("%d", &intArray[i]);
+    while (temp)
+    {
+        if (temp->num == key)
+        {
+            return true; // Element found
         }
+        temp = temp->next;
+    }
 
+    return false; // Element not found
+}
+
+void cleanup()
+{
+    Node *temp = HEAD;
+    while (HEAD)
+    {
+        temp = HEAD;
+        HEAD = HEAD->next;
+        free(temp);
+    }
+    // Set HEAD to NULL after freeing all nodes
+    HEAD = NULL;
+}
+
+int main()
+{
+    bool isRunning = true;
+
+    while (isRunning)
+    {
+        int choice;
+        int num;
         int key;
-        printf("Enter the key to search: ");
-        scanf("%d", &key);
 
-        int binaryIndex = binarySearchInt(intArray, 0, n - 1, key);
-        printf("Binary Search: Element comparisons = %d, Index comparisons = %d\n", elementComparisons, indexComparisons);
+        printf("\nMenu:\n");
+        printf("1. Insert an element\n");
+        printf("2. Search an element\n");
+        printf("3. Display the list\n");
+        printf("4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
 
-    } else if (strcmp(dataType, "char") == 0) {
+        switch (choice)
+        {
+        case 1:
+            printf("Enter the element to insert: ");
+            scanf("%d", &num);
+            insertNode(num);
+            break;
 
-        char charArray[n];
-        printf("Enter %d sorted character elements of the array:\n", n);
-        for (int i = 0; i < n; i++) {
-            scanf(" %c", &charArray[i]);
+        case 2:
+            printf("Enter the element to search: ");
+            scanf("%d", &key);
+            if (linearSearch(key))
+            {
+                printf("Element %d found in the list.\n", key);
+            }
+            else
+            {
+                printf("Element %d not found in the list.\n", key);
+            }
+            break;
+
+        case 3:
+            display();
+            break;
+
+        case 4:
+            cleanup();
+            isRunning = false;
+            break;
+
+        default:
+            printf("Invalid choice. Please enter a valid option.\n");
         }
-
-        char key;
-        printf("Enter the key to search: ");
-        scanf(" %c", &key);
-
-        int binaryIndex = binarySearchChar(charArray, 0, n - 1, key);
-        printf("Binary Search: Element comparisons = %d, Index comparisons = %d\n", elementComparisons, indexComparisons);
-    } else {
-        printf("Invalid data type entered. Please enter 'int' or 'char'.\n");
-        return 1;
     }
 
     return 0;
 }
+

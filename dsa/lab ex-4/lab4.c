@@ -1,35 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-// Order structure represents a food order in the university canteen
 struct FoodOrder
 {
     char itemName[50];
     int quantity;
 };
 
-// InventoryItem structure represents an item in the canteen inventory
 struct InventoryItem
 {
     char itemName[50];
 };
 
-// CircularQueue structure for order queue using circular queue
 struct CircularQueue
 {
     struct FoodOrder *orders;
     int front, rear, size, capacity;
 };
 
-// Deque structure for inventory using double-ended queue
+
 struct Deque
 {
     struct InventoryItem *items;
     int front, rear, size, capacity;
 };
 
-// Function to initialize the circular queue
+
 void initializeCircularQueue(struct CircularQueue *circularQueue, int capacity)
 {
     circularQueue->orders = (struct FoodOrder *)malloc(capacity * sizeof(struct FoodOrder));
@@ -38,7 +34,7 @@ void initializeCircularQueue(struct CircularQueue *circularQueue, int capacity)
     circularQueue->capacity = capacity;
 }
 
-// Function to initialize the double-ended queue
+
 void initializeDeque(struct Deque *deque, int capacity)
 {
     deque->items = (struct InventoryItem *)malloc(capacity * sizeof(struct InventoryItem));
@@ -221,14 +217,13 @@ void displayInventory(struct Deque *deque)
     } while (index != (deque->rear + 1) % deque->capacity);
 }
 
-// Function to free the allocated memory for the circular queue and deque
 void freeMemory(struct CircularQueue *circularQueue, struct Deque *deque)
 {
     free(circularQueue->orders);
     free(deque->items);
 }
 
-// Main function for the menu-driven canteen management program
+
 int main()
 {
     struct CircularQueue orderQueue;

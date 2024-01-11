@@ -1,4 +1,4 @@
-// Package: realEstate
+
 import Realstate.*;
 
 public class Test {
