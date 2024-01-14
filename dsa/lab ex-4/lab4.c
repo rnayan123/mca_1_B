@@ -74,7 +74,6 @@ void enqueueOrder(struct CircularQueue *circularQueue, struct FoodOrder order)
     printf("Order added to the queue: Item: %s, Quantity: %d\n", order.itemName, order.quantity);
 }
 
-// Function to dequeue a food order from the circular queue
 void dequeueOrder(struct CircularQueue *circularQueue)
 {
     if (isCircularQueueEmpty(circularQueue))
@@ -92,8 +91,6 @@ void dequeueOrder(struct CircularQueue *circularQueue)
 
     circularQueue->size--;
 }
-
-// Function to display the food orders in the circular queue
 void displayOrderQueue(struct CircularQueue *circularQueue)
 {
     if (isCircularQueueEmpty(circularQueue))
@@ -122,7 +119,6 @@ int isDequeFull(struct Deque *deque)
     return deque->size == deque->capacity;
 }
 
-// Function to enqueue an item to the rear of the deque
 void enqueueRearInventory(struct Deque *deque, struct InventoryItem item)
 {
     if (isDequeFull(deque))
