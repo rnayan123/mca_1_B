@@ -3,15 +3,14 @@ import Realstate.*;
 
 public class Test {
     public static void main(String[] args) {
-        // Create a residential property
+        
         RealEstateListing residentialProperty = new ResidentialProperty();
 
-        // Display details and calculate price for residential property
         residentialProperty.displayDetails();
         double residentialPrice = residentialProperty.calculatePrice();
         System.out.println("Residential Property Price: $" + residentialPrice);
 
-        // Create a residential real estate agent
+        /
         RealEstateAgent residentialAgent = new ResidentialRealEstateAgent();
 
         // Promote and sell the residential property

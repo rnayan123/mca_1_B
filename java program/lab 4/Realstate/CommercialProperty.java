@@ -11,7 +11,7 @@ public class CommercialProperty implements RealEstateListing {
     @Override
     public double calculatePrice() {
 
-        return 500000.0; // Placeholder value
+        return 500000.0; 
     }
 
 }

@@ -10,11 +10,11 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from "react-native";
-import RNPickerSelect from "react-native-picker-select";
-import AuthContext from "../../AuthContext";
-import { database } from "../../firebaseConfig";
 import { ref, push, update, serverTimestamp } from "firebase/database";
 import DateTimePicker from "@react-native-community/datetimepicker";
+
+import AuthContext from "../../AuthContext";
+import { database } from "../../firebaseConfig";
 
 const AddPatient = () => {
   const authContext = useContext(AuthContext);
@@ -31,35 +31,64 @@ const AddPatient = () => {
     doctorID: authContext.user,
   });
 
-  console.log("Date:::::: <<< >>> : ", formData);
-
-  const pickerItems = [
-    { label: "Covid19", value: "Covid19" },
-    { label: "Diabetes", value: "Diabetes" },
-    { label: "Flu", value: "Flu" },
-    { label: "Fever", value: "Fever" },
-    { label: "Heart Disease", value: "HeartDisease" },
-    { label: "Diarrheal", value: "Diarrheal" },
-  ];
-
-  // Firebase
-  const myFirebase = async () => {
-    try {
-      // Get a key for every new Patient.
-      const newPatientKey = push(ref(database, "patients")).key;
-
-      // Write the new patient's data simultaneously in the patients list.
-      const updates = {};
-      updates[`/patients/${newPatientKey}`] = formData;
-      // Use await to wait for the update to complete
-      await update(ref(database), updates);
-
-      console.log("Patient added successfully!");
-    } catch (error) {
-      console.error("Error adding patient:", error.message);
-    }
-  };
-  // ---------
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: "#f7f7f7",
+      padding: 20,
+    },
+    headerContainer: {
+      alignItems: "center",
+      marginBottom: 20,
+    },
+    footer: {
+      width: "100%",
+      height: 200,
+      resizeMode: "cover",
+    },
+    topText: {
+      fontWeight: "bold",
+      fontSize: 24,
+      marginVertical: 10,
+      color: "#3498db",
+    },
+    scrollContainer: {
+      flexGrow: 1,
+    },
+    headingText: {
+      fontSize: 20,
+      fontWeight: "bold",
+      marginTop: 20,
+      marginBottom: 10,
+      color: "#333",
+    },
+    input: {
+      height: 40,
+      borderColor: "#3498db",
+      borderWidth: 1,
+      borderRadius: 5,
+      marginBottom: 15,
+      paddingHorizontal: 10,
+      backgroundColor: "#fff",
+      color: "#333",
+    },
+    datePicker: {
+      marginBottom: 15,
+    },
+    button: {
+      backgroundColor: "#3498db",
+      paddingVertical: 15,
+      paddingHorizontal: 20,
+      borderRadius: 5,
+      alignItems: "center",
+    },
+    buttonText: {
+      color: "#ffffff",
+      textAlign: "center",
+      fontWeight: "bold",
+      fontSize: 18,
+    },
+  });
 
   const handleDateChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
@@ -67,12 +96,30 @@ const AddPatient = () => {
     setDate(currentDate);
     setFormData({
       ...formData,
-      appointmentDate: currentDate.toLocaleDateString(),
+      appointmentDate: currentDate.toISOString(),
     });
   };
 
-  const showDatePicker = async () => {
+  const showDatePicker = () => {
     setShow(true);
+  };
+
+  const myFirebase = async () => {
+    try {
+      if (!formData.appointmentDate) {
+        console.error("Invalid appointment date");
+        return;
+      }
+
+      const newPatientKey = push(ref(database, "patients")).key;
+      const updates = {};
+      updates[`/patients/${newPatientKey}`] = formData;
+      await update(ref(database), updates);
+
+      console.log("Patient added successfully!");
+    } catch (error) {
+      console.error("Error adding patient:", error.message);
+    }
   };
 
   return (
@@ -101,7 +148,7 @@ const AddPatient = () => {
           </View>
           <View>
             <View style={styles.datePicker}>
-              <Text onPress={showDatePicker} style={{ opacity: 0.3 }}>
+              <Text onPress={showDatePicker} style={{ opacity: 0.6 }}>
                 Appointment Date:{" "}
               </Text>
               {show && (
@@ -118,14 +165,13 @@ const AddPatient = () => {
               }
             />
           </View>
-          <View style={styles.input}>
-            <RNPickerSelect
-              onValueChange={(value) => {
-                setFormData({ ...formData, patientDisease: value });
-              }}
-              items={pickerItems}
-              placeholder={{ label: "Select an option", value: "" }}
-              value={formData.patientDisease}
+          <View>
+            <TextInput
+              style={styles.input}
+              placeholder="Patient Disease"
+              onChangeText={(text) =>
+                setFormData({ ...formData, patientDisease: text })
+              }
             />
           </View>
           <View>
@@ -160,14 +206,3 @@ const AddPatient = () => {
 };
 
 export default AddPatient;
-
-const styles = StyleSheet.create({
-  // Your styles remain unchanged
-
-  container: {
-    padding: 10,
-  },
-  topText: {
-    fontWeight: "bold",
-  },
-});
